@@ -16,4 +16,18 @@ class TmbHttpService {
       throw Exception("Error al consultar la parada");
     }
   }
+
+  // AQUI VIENE EL END-POINT DE METRO DE TMB
+  Future<List<MetroModel>> getMetroStations() async {
+    // URL para el listado de estaciones de metro
+    final url = "https://api.tmb.cat/v1/transit/estacions?app_id=$_appId&app_key=$_appKey";
+    
+    final response = await http.get(Uri.parse(url));
+
+    if (response.statusCode == 200) {
+      return metroModelFromJson(response.body);
+    } else {
+      throw Exception("Error al obtener las estaciones de metro");
+    }
+  }
 }
