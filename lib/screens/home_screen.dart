@@ -3,6 +3,7 @@ import 'car_list_screen.dart'; // Importa tu pantalla de coches
 import 'joke_screen.dart'; // Importa tu pantalla de chistes
 import 'tmb_screen.dart'; // Importa la pantalla de búsqueda de paradas TMB
 import 'tmbmetro_screen.dart'; // Importa la pantalla de estaciones de metro TMB
+import 'planner_screen.dart'; // Importa la pantalla del planner de buses TMB
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -53,6 +54,17 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MetroScreen()),
+                );
+              },
+            ),
+            SizedBox(height: 16),
+            ElevatedButton(
+              child: Text("Ver Planner de buses TMB"),
+              onPressed: () {
+                // Navegacion a la ventana de estaciones de metro
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PlannerScreen()),
                 );
               },
             ),
